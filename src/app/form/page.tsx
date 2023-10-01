@@ -5,10 +5,10 @@ import { useEffect } from "react";
 
 const Form = (props:any) => {
 
-  const [currentSavings, setCurrentSavings] = useState(0);
-  const [expectedReturn, setExpectedReturn] = useState(0);
-  const [yearlyContribution, setYearlyContribution] = useState(0);
-  const [duration, setDuration] = useState(0);
+  const [currentSavings, setCurrentSavings] = useState("");
+  const [expectedReturn, setExpectedReturn] = useState("");
+  const [yearlyContribution, setYearlyContribution] = useState("");
+  const [duration, setDuration] = useState("");
 
 
   const inputHandler=(identifier:string,value:any)=>{
@@ -24,6 +24,13 @@ const Form = (props:any) => {
     }
   }
   
+  const resetHandler=()=>{
+    setCurrentSavings("");
+    setExpectedReturn("");
+    setYearlyContribution("");
+    setDuration("");
+  }
+
   const submitHandler=(event:any)=>{
     event.preventDefault();
     const yearlyData=[];
@@ -42,11 +49,12 @@ const Form = (props:any) => {
         yearlyContribution: yearlyContribution
       });
     }
-    props.onSaveData(yearlyData)
+    props.onSaveData(yearlyData);
+    resetHandler();
     // console.log(currentSavings,expectedReturn,yearlyContribution,duration,yearlyData)
   }
   return (
-    <form className="w-full flex justify-center" onSubmit={submitHandler}>
+    <form className="w-full flex justify-center">
       <div className="flex flex-col bg-gradient-to-b from-[#307F6C] to-[#2B986D] px-4 py-8 rounded-md w-full gap-14 items-center">
         <div className="flex flex-col gap-14 md:flex-row">
           <div className="flex flex-col gap-14 justify-between">
@@ -55,6 +63,7 @@ const Form = (props:any) => {
               <input 
               className="border-2 border-slate-300 rounded-md p-2 focus:outline-slate-300 bg-transparent w-64" 
               onChange={(event)=>inputHandler('currentSavings',event.target.value)}
+              value={currentSavings}
               />
             </div>
             <div className="flex flex-col gap-2">
@@ -62,6 +71,7 @@ const Form = (props:any) => {
               <input 
               className="border-2 border-slate-300 rounded-md p-2 focus:outline-slate-300 bg-transparent w-64" 
               onChange={(event)=>inputHandler('expectedReturn',event.target.value)}
+              value={expectedReturn}
               />
             </div>
           </div>
@@ -71,6 +81,7 @@ const Form = (props:any) => {
               <input 
               className="border-2 border-slate-300 rounded-md p-2 focus:outline-slate-300 bg-transparent w-64" 
               onChange={(event)=>inputHandler('yearlyContribution',event.target.value)}
+              value={yearlyContribution}
               />
             </div>
             <div className="flex flex-col gap-2">
@@ -78,15 +89,16 @@ const Form = (props:any) => {
               <input 
               className="border-2 border-slate-300 rounded-md p-2 focus:outline-slate-300 bg-transparent w-64" 
               onChange={(event)=>inputHandler('duration',event.target.value)}
+              value={duration}
               />
             </div>
           </div>
         </div>
         <div className="flex justify-center gap-4 text-slate-300">
-          <button className="bg-gradient-to-b from-[#303b37] to-[#1a1f1d] p-2 rounded-md">
+          <button className="bg-gradient-to-b from-[#303b37] to-[#1a1f1d] p-2 rounded-md" onClick={resetHandler}>
             Reset
           </button>
-          <button className="bg-gradient-to-b from-[#303b37] to-[#1a1f1d] p-2 rounded-md">
+          <button className="bg-gradient-to-b from-[#303b37] to-[#1a1f1d] p-2 rounded-md" onClick={submitHandler}>
             Calculate
           </button>
         </div>
