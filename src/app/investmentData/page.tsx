@@ -1,7 +1,7 @@
 const InvestmentData = (props: any) => {
   // {year: 1, yearlyInterest: 2, savingsEndOfYear: 6, yearlyContribution: 3}
   const yearlyInvestmentData = props.yearlyDataInfo;
-  console.log(yearlyInvestmentData.length);
+  // console.log(yearlyInvestmentData.length);
   return (
     <div className="pb-16">
       {props.yearlyDataInfo.length === 0 ? (

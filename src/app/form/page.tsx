@@ -3,8 +3,10 @@
 import { useState } from "react";
 import { useEffect } from "react";
 
+
 const Form = (props:any) => {
 
+  
   const [currentSavings, setCurrentSavings] = useState("");
   const [expectedReturn, setExpectedReturn] = useState("");
   const [yearlyContribution, setYearlyContribution] = useState("");
@@ -54,7 +56,7 @@ const Form = (props:any) => {
     // console.log(currentSavings,expectedReturn,yearlyContribution,duration,yearlyData)
   }
   return (
-    <form className="w-full flex justify-center">
+    <form className="w-full flex justify-center" onSubmit={submitHandler}>
       <div className="flex flex-col bg-gradient-to-b from-[#307F6C] to-[#2B986D] px-4 py-8 rounded-md w-full gap-14 items-center">
         <div className="flex flex-col gap-14 md:flex-row">
           <div className="flex flex-col gap-14 justify-between">
@@ -98,7 +100,7 @@ const Form = (props:any) => {
           <button className="bg-gradient-to-b from-[#303b37] to-[#1a1f1d] p-2 rounded-md" onClick={resetHandler}>
             Reset
           </button>
-          <button className="bg-gradient-to-b from-[#303b37] to-[#1a1f1d] p-2 rounded-md" onClick={submitHandler}>
+          <button className="bg-gradient-to-b from-[#303b37] to-[#1a1f1d] p-2 rounded-md" type="submit">
             Calculate
           </button>
         </div>
