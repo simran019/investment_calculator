@@ -10,22 +10,11 @@ const InvestmentData = (props: any) => {
         <table className="w-full">
           <thead className="p-2">
             <tr>
-              <th className="p-2 w-48 text-[#43d199]">
-                Year
-              </th>
-              <th className="p-2 w-48 text-[#43d199]">
-                Total Savings
-              </th>
-              <th className="p-2 w-48 text-[#43d199]">
-                Interest (Year)
-              </th>
-
-              <th className="p-2 w-48 text-[#43d199]">
-                Total Interest
-              </th>
-              <th className="p-2 w-48 text-[#43d199]">
-                Invested Capital
-              </th>
+              <th className="p-2 w-48 text-[#43d199]">Year</th>
+              <th className="p-2 w-48 text-[#43d199]">Total Savings</th>
+              <th className="p-2 w-48 text-[#43d199]">Interest (Year)</th>
+              <th className="p-2 w-48 text-[#43d199]">Total Interest</th>
+              <th className="p-2 w-48 text-[#43d199]">Invested Capital</th>
             </tr>
           </thead>
           <tbody>
